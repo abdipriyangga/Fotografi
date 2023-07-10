@@ -1,16 +1,16 @@
-import { View, Image, StyleSheet, Text, ScrollView, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import { View, Image, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native'
+import React from 'react'
 import { ImageAssets } from '../assets/images/ImageAssets'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import GridView from '../components/grid/GridView'
 
-const Homescreen = () => {
+const Homescreen = ({ navigation }: Props) => {
 
     return (
         <View style={styles.container}>
             <View style={styles.bannerImage}>
-                <Image source={ImageAssets.batikImage} />
+                <Image source={ImageAssets.batikImage} style={styles.batikImage} />
             </View>
             <View style={styles.section}>
                 <Text style={styles.firstTitle}>Photophy</Text>
@@ -27,9 +27,13 @@ const Homescreen = () => {
                     { image: ImageAssets.fourthPic, id: 4 },
                     { image: ImageAssets.fifthPic, id: 5 },
                     { image: ImageAssets.sixthPic, id: 6 },
-                ]} renderItem={(item) => <View style={styles.itemContainer}>
+                ]} renderItem={(item) => <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('PhotographerDesc')}>
                     <Image source={item.image} style={{ width: 190, height: 250 }} />
-                </View>} />
+                    <View style={styles.containerProfile}>
+                        <Image source={ImageAssets.profile1} style={styles.profilePic} />
+                        <Text style={styles.textProfile}>John Doe</Text>
+                    </View>
+                </TouchableOpacity>} />
             </ScrollView>
         </View>
     )
@@ -42,13 +46,18 @@ const styles = StyleSheet.create({
     bannerImage: {
         alignItems: "flex-end",
     },
+    batikImage: {
+        width: 120,
+        height: 120
+    },
     firstTitle: {
         fontSize: 32,
         fontWeight: "900",
         color: "#000"
     },
     section: {
-        padding: 10
+        padding: 10,
+        top: -20
     },
     sectionLocation: {
         display: 'flex',
@@ -76,6 +85,23 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginBottom: 8,
         height: "auto",
+    },
+    containerProfile: {
+        position: "absolute",
+        padding: 10,
+        top: 210,
+        left: 10,
+        flexDirection: 'row',
+        gap: 10
+    },
+    profilePic: {
+        width: 25,
+        height: 25
+    },
+    textProfile: {
+        fontSize: 14,
+        color: "#fff",
+        fontWeight: "800"
     }
 });
 export default Homescreen

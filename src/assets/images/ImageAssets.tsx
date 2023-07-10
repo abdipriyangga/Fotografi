@@ -7,4 +7,10 @@ export const ImageAssets = {
     fifthPic: require('./pic5.png'),
     sixthPic: require('./pic6.png'),
     seventhPic: require('./pic7.png'),
+    profile1: require('./profile1.png'),
+    profile2: require('./profile2.png'),
+    logoTwitter: require('./Twitter.png'),
+    logoFacebook: require('./Facebook.png'),
+    logoYoutube: require('./yt.png'),
+    logoInstagram: require('./Instagram.png'),
 }

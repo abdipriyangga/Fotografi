@@ -7,7 +7,8 @@ import { faCompass } from '@fortawesome/free-regular-svg-icons';
 import {
     StyleSheet,
 } from 'react-native';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faL, faUser } from '@fortawesome/free-solid-svg-icons';
+import ListPhotographerScreen from '../../screens/ListPhotographerScreen';
 export type BottomStackParamList = {
     Explore: undefined,
     Profile: undefined
@@ -18,6 +19,7 @@ const BottomTabNavigator = () => {
     return (
         <BottomTabs.Navigator screenOptions={{
             tabBarStyle: style.bottomTabs,
+
         }}>
             <BottomTabs.Screen options={{
                 headerShown: false, tabBarIcon(props) {
@@ -25,11 +27,12 @@ const BottomTabNavigator = () => {
                 },
                 title: ""
             }} name='Explore' component={Homescreen} />
-            <BottomTabs.Screen name='Profile' component={ProfileScreen} options={{
+            <BottomTabs.Screen name='Profile' component={ListPhotographerScreen} options={{
                 tabBarIcon(props) {
                     return <FontAwesomeIcon icon={faUser} style={style.icon} size={32} />
                 },
-                title: ""
+                title: "",
+                headerShown: false
             }} />
         </BottomTabs.Navigator>
     )
@@ -42,7 +45,12 @@ const style = StyleSheet.create({
         paddingHorizontal: 5,
         alignItems: "center",
         justifyContent: "center",
-        height: 60
+        height: 60,
+        width: 250,
+        borderRadius: 30,
+        top: -20,
+        left: 80,
+        shadowColor: "#000"
     },
     icon: {
         color: '#F9DBBB',

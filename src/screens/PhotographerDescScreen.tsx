@@ -4,19 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { ImageAssets } from '../assets/images/ImageAssets'
 import GridView from '../components/grid/GridView'
-import TabProfileDesc from '../components/tab/tabProfileDesc'
+import TabProfileDesc from '../components/tab/TabProfileDesc'
 
-const PhotographerDescScreen = () => {
+const PhotographerDescScreen = ({ navigation }: Props) => {
     return (
         <View style={styles.container}>
-            <View style={styles.bannerImage}>
-                <Image source={ImageAssets.batikImage} style={styles.batikImage} />
-            </View>
-            <View style={styles.sectionHeader}>
-                <FontAwesomeIcon icon={faArrowLeft} style={styles.arrowLeft} size={28} />
-                <Text style={styles.textHeader}>Profile</Text>
-            </View>
             <ScrollView>
+                <View style={styles.bannerImage}>
+                    <Image source={ImageAssets.batikImage} style={styles.batikImage} />
+                </View>
+                <View style={styles.sectionHeader}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <FontAwesomeIcon icon={faArrowLeft} style={styles.arrowLeft} size={28} />
+                    </TouchableOpacity>
+                    <Text style={styles.textHeader}>Profile</Text>
+                </View>
                 <View style={styles.sectionContent}>
                     <Image source={ImageAssets.profile2} />
                     <View style={styles.secondContainer}>

@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
         padding: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        position: "absolute",
+        width: "100%",
+        alignItems: "center",
+        top: 573,
+        left: 5.5
     },
     textDays: {
         color: "#fff",

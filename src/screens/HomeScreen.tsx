@@ -9,17 +9,17 @@ const Homescreen = ({ navigation }: Props) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.bannerImage}>
-                <Image source={ImageAssets.batikImage} style={styles.batikImage} />
-            </View>
-            <View style={styles.section}>
-                <Text style={styles.firstTitle}>Photophy</Text>
-                <View style={styles.sectionLocation}>
-                    <FontAwesomeIcon icon={faLocationDot} size={20} style={styles.iconLocation} />
-                    <Text style={styles.titleLocation}>Taraju, Tasikmalaya</Text>
-                </View>
-            </View>
             <ScrollView >
+                <View style={styles.bannerImage}>
+                    <Image source={ImageAssets.batikImage} style={styles.batikImage} />
+                </View>
+                <View style={styles.section}>
+                    <Text style={styles.firstTitle}>Photophy</Text>
+                    <View style={styles.sectionLocation}>
+                        <FontAwesomeIcon icon={faLocationDot} size={20} style={styles.iconLocation} />
+                        <Text style={styles.titleLocation}>Taraju, Tasikmalaya</Text>
+                    </View>
+                </View>
                 <GridView data={[
                     { image: ImageAssets.firstPic, id: 1 },
                     { image: ImageAssets.secondPic, id: 2 },
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     batikImage: {
         width: 120,
-        height: 120
+        height: 80
     },
     firstTitle: {
         fontSize: 32,

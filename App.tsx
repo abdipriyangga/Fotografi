@@ -6,7 +6,7 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -14,10 +14,12 @@ import {
 } from 'react-native';
 
 import RootNavigator from './src/components/navigators/RootNavigator';
-
+import SplashScreen from 'react-native-splash-screen';
 
 export default function App() {
-
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
   return (
     <View style={styles.container}>
       <NavigationContainer>

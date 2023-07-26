@@ -1,7 +1,7 @@
 import React from 'react'
 import Homescreen from '../../screens/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ProfileScreen from '../../screens/ProfileScreen';
+// import ProfileScreen from '../../screens/ProfileScreen';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCompass } from '@fortawesome/free-regular-svg-icons';
 import {

@@ -1,10 +1,41 @@
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, FlatList, } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { ImageAssets } from '../assets/images/ImageAssets'
 
+
 const ListPhotographerScreen = ({ navigation }: Props) => {
+    const [users] = useState([
+        {
+            id: 1,
+            name: "Aqil Munawar",
+            rentDay: 1,
+            price: 100000,
+            picture: ImageAssets.people
+        },
+        {
+            id: 2,
+            name: "John Doe",
+            rentDay: 1,
+            price: 100000,
+            picture: ImageAssets.people1
+        },
+        {
+            id: 3,
+            name: "Maxwell Anthony",
+            rentDay: 1,
+            price: 100000,
+            picture: ImageAssets.people2
+        },
+        {
+            id: 4,
+            name: "Robert Swagger",
+            rentDay: 1,
+            price: 100000,
+            picture: ImageAssets.people3
+        },
+    ]);
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -14,94 +45,35 @@ const ListPhotographerScreen = ({ navigation }: Props) => {
                     </TouchableOpacity>
                     <Text style={styles.textHeader}>Fotographer</Text>
                 </View>
-                <View style={styles.sectionContent}>
-                    <View style={styles.containerProfilePic}>
-                        <Image source={ImageAssets.profile2} />
-                    </View>
-                    <View style={styles.secondContainer}>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.textName}>Aqil</Text>
-                            <View style={styles.secTextContainer}>
-                                <Text style={styles.textDays}>1 Hari</Text>
-                                <Text style={styles.textPrice}>Rp. 500000</Text>
+                {
+                    users.map((data, idx) => {
+                        { console.log("datra: ", data) }
+                        return (
+                            <View key={idx} style={styles.sectionContent}>
+                                <View style={styles.containerProfilePic}>
+                                    <Image source={data.picture} style={{ width: 100, height: 100, borderRadius: 50 }} />
+                                </View>
+                                <View style={styles.secondContainer}>
+                                    <View style={styles.textContainer}>
+                                        <Text style={styles.textName}>{data.name}</Text>
+                                        <View style={styles.secTextContainer}>
+                                            <Text style={styles.textDays}>{data.rentDay}</Text>
+                                            <Text style={styles.textPrice}>Rp. {data.price}</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.sectionButton}>
+                                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PhotographerDesc')}>
+                                            <Text style={styles.textButton}>Lihat Hasil</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.buttonCalling}>
+                                            <Text style={styles.textButton}>Hubungi</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
                             </View>
-                        </View>
-                        <View style={styles.sectionButton}>
-                            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PhotographerDesc')}>
-                                <Text style={styles.textButton}>Lihat Hasil</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.buttonCalling}>
-                                <Text style={styles.textButton}>Hubungi</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </View>
-                <View style={styles.sectionContent}>
-                    <View style={styles.containerProfilePic}>
-                        <Image source={ImageAssets.profile2} />
-                    </View>
-                    <View style={styles.secondContainer}>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.textName}>Aqil</Text>
-                            <View style={styles.secTextContainer}>
-                                <Text style={styles.textDays}>1 Hari</Text>
-                                <Text style={styles.textPrice}>Rp. 500000</Text>
-                            </View>
-                        </View>
-                        <View style={styles.sectionButton}>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.textButton}>Lihat Hasil</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.buttonCalling}>
-                                <Text style={styles.textButton}>Hubungi</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </View>
-                <View style={styles.sectionContent}>
-                    <View style={styles.containerProfilePic}>
-                        <Image source={ImageAssets.profile2} />
-                    </View>
-                    <View style={styles.secondContainer}>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.textName}>Aqil</Text>
-                            <View style={styles.secTextContainer}>
-                                <Text style={styles.textDays}>1 Hari</Text>
-                                <Text style={styles.textPrice}>Rp. 500000</Text>
-                            </View>
-                        </View>
-                        <View style={styles.sectionButton}>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.textButton}>Lihat Hasil</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.buttonCalling}>
-                                <Text style={styles.textButton}>Hubungi</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </View>
-                <View style={styles.sectionContent}>
-                    <View style={styles.containerProfilePic}>
-                        <Image source={ImageAssets.profile2} />
-                    </View>
-                    <View style={styles.secondContainer}>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.textName}>Aqil</Text>
-                            <View style={styles.secTextContainer}>
-                                <Text style={styles.textDays}>1 Hari</Text>
-                                <Text style={styles.textPrice}>Rp. 500000</Text>
-                            </View>
-                        </View>
-                        <View style={styles.sectionButton}>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.textButton}>Lihat Hasil</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.buttonCalling}>
-                                <Text style={styles.textButton}>Hubungi</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </View>
+                        )
+                    })
+                }
             </ScrollView>
         </View>
     )
@@ -138,9 +110,10 @@ const styles = StyleSheet.create({
         padding: 10
     },
     textName: {
+        width: 100,
         fontWeight: "bold",
         color: "#4E6E81",
-        fontSize: 22,
+        fontSize: 18,
         top: 12
     },
     textDays: {
@@ -193,7 +166,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     containerProfilePic: {
-
+        width: 100,
+        height: 100,
+        backgroundColor: "#F9DBBB80",
+        borderRadius: 50
     },
     textContainer: {
         gap: 17

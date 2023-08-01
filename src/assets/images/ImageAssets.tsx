@@ -13,4 +13,10 @@ export const ImageAssets = {
     logoFacebook: require('./Facebook.png'),
     logoYoutube: require('./yt.png'),
     logoInstagram: require('./Instagram.png'),
+    people: require('./people.png'),
+    people1: require('./people1.png'),
+    people2: require('./people2.png'),
+    people3: require('./people3.png'),
+    people4: require('./people4.png'),
+    people5: require('./people5.png'),
 }
